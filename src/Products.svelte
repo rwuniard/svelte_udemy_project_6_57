@@ -1,9 +1,21 @@
 <script>
+    import { createEventDispatcher } from 'svelte';
     export let productTitle;
+
+    const dispatch = createEventDispatcher();
+
+    function addToCart() {
+        // The 'add-to-cart' is the name of the event.
+        dispatch('add-to-cart'); // you can put data into the second parameter to pass additional information, such as string, number, object, etc.
+    }
+
+    function delSomething() {
+        dispatch('delete-something');
+    }
 </script>
 
 <article>
     <h1>{productTitle}</h1>
-    <button on:click>Add to Cart</button>
-    <button on:click>Delete</button>
+    <button on:click={addToCart}>Add to Cart</button>
+    <button on:click={delSomething}>Delete</button>
 </article>
