@@ -6,11 +6,11 @@
 
     function addToCart() {
         // The 'add-to-cart' is the name of the event.
-        dispatch('add-to-cart'); // you can put data into the second parameter to pass additional information, such as string, number, object, etc.
+        dispatch('add-to-cart', { id: 'p1' }); // you can put data into the second parameter to pass additional information, such as string, number, object, etc.
     }
 
     function delSomething() {
-        dispatch('delete-something');
+        dispatch('delete-something', 'deleting product');
     }
 </script>
 
