@@ -27,6 +27,7 @@
 {/each}
 
 <Modal>
-    <h1>Hello Slot</h1>
+    <h1 slot="header">Hello Slot</h1>
     <h2>This really works!</h2>
+    <button slot="footer">Confirm</button>
 </Modal> />
