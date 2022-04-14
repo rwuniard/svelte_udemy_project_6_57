@@ -1,6 +1,13 @@
 <script>
     import Product from './Products.svelte';
 
+    let products = [
+        {
+            id: '01',
+            title: 'A book',
+            price: 9.99,
+        },
+    ];
     function addToCart(event) {
         console.log(event);
     }
@@ -10,4 +17,10 @@
     }
 </script>
 
-<Product productTitle="My Product" on:add-to-cart={addToCart} on:delete-something={deleteSomething} />
+{#each products as product}
+    <!-- These two lines were inside the <Product -->
+    <!-- title={product.title} -->
+    <!-- price={product.price} -->
+    <!-- the two statements above can be re-written with spread operator below assuming the props name are matching -->
+    <Product {...product} on:add-to-cart={addToCart} on:delete-something={deleteSomething} />
+{/each}
