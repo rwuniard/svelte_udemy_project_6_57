@@ -1,5 +1,6 @@
 <script>
     import Product from './Products.svelte';
+    import Modal from './Modal.svelte';
 
     let products = [
         {
@@ -24,3 +25,8 @@
     <!-- the two statements above can be re-written with spread operator below assuming the props name are matching -->
     <Product {...product} on:add-to-cart={addToCart} on:delete-something={deleteSomething} />
 {/each}
+
+<Modal>
+    <h1>Hello Slot</h1>
+    <h2>This really works!</h2>
+</Modal> />
