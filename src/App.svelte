@@ -2,6 +2,7 @@
     import Product from './Products.svelte';
     import Modal from './Modal.svelte';
 
+    let showModal = false;
     let products = [
         {
             id: '01',
@@ -25,9 +26,12 @@
     <!-- the two statements above can be re-written with spread operator below assuming the props name are matching -->
     <Product {...product} on:add-to-cart={addToCart} on:delete-something={deleteSomething} />
 {/each}
+<button on:click={() => (showModal = true)}>Show Modal</button>
 
-<Modal>
-    <h1 slot="header">Hello Slot</h1>
-    <h2>This really works!</h2>
-    <button slot="footer">Confirm</button>
-</Modal> />
+{#if showModal}
+    <Modal on:cancel={() => (showModal = false)} on:close={() => (showModal = false)}>
+        <h1 slot="header">Hello Slot</h1>
+        <h2>This really works!</h2>
+        <button slot="footer" on:click={() => (showModal = false)}>Confirm</button>
+    </Modal> />
+{/if}
